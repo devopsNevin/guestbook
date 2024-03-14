@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nevin
+  labels:
+    app: nevin
+  namespace: namespace-workflow-1710439780556
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nevin
+  template:
+    metadata:
+      labels:
+        app: nevin
+    spec:
+      containers:
+        - name: nevin
+          image: acrworkflow1710439780556.azurecr.io/image-workflow-1710439780556:latest
+          ports:
+            - containerPort: 8080
